@@ -60,9 +60,11 @@ const init = (settings) => {
     url: "",
     // The search fields and filterable facets.
     searchFields: [
+      {label: "Topic", field: "sm_federated_terms_topic", type: "list-facet", hierarchy: true, expandedHierarchies: [], isHidden: false},
+      {label: "Sub-topic", field: "sm_federated_terms_subtopic", type: "list-facet", hierarchy: true, expandedHierarchies: [], isHidden: false},
       {label: "Enter Search Term:", field: "tm_rendered_item", type: "text", isHidden: false},
-      {label: "Site Name", field: "sm_site_name", type: "list-facet", collapse: true, isHidden: false},
       {label: "Type", field: "ss_federated_type", type: "list-facet", collapse: true, isHidden: false},
+      {label: "Site Name", field: "sm_site_name", type: "list-facet", collapse: true, isHidden: false},
       {label: "Date", field: "ds_federated_date", type: "range-facet", collapse: true, isHidden: false},
       {label: "Federated Terms", field: "sm_federated_terms", type: "list-facet", hierarchy: true, expandedHierarchies: [], isHidden: false},
     ],
