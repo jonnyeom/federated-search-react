@@ -116,9 +116,9 @@ class FederatedResult extends React.Component {
           <h3 className="search-results__heading"><a href={this.getCanonicalLink(doc)} dangerouslySetInnerHTML={{__html: doc.ss_federated_title}} /></h3>
           <div className="search-results__meta">
             <cite className="search-results__citation">{this.renderSitenameLinks(doc.sm_site_name, doc.sm_urls, doc.ss_site_name)}</cite>
-            <span className="search-results__date">{this.dateFormat(doc.ds_federated_date)}</span>
+            <span className="search-results__date">{this.dateFormat(doc.ss_federated_date)}</span>
           </div>
-          <p className="search-results__teaser" dangerouslySetInnerHTML={{__html: highlight.tm_rendered_item}} />
+          <p className="search-results__teaser" dangerouslySetInnerHTML={{__html: highlight.tm_X3b_en_rendered_item}} />
         </div>
       </li>
     )

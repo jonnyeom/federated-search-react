@@ -62,21 +62,21 @@ const init = (settings) => {
     searchFields: [
       {label: "Topic", field: "sm_federated_terms_topic", type: "list-facet", hierarchy: true, expandedHierarchies: [], isHidden: false},
       {label: "Sub-topic", field: "sm_federated_terms_subtopic", type: "list-facet", hierarchy: true, expandedHierarchies: [], isHidden: false},
-      {label: "Enter Search Term:", field: "tm_rendered_item", type: "text", isHidden: false},
+      {label: "Enter Search Term:", field: "tm_X3b_en_rendered_item", type: "text", isHidden: false},
       {label: "Type", field: "ss_federated_type", type: "list-facet", collapse: true, isHidden: false},
       {label: "Site Name", field: "sm_site_name", type: "list-facet", collapse: true, isHidden: false},
       {label: "Date", field: "ds_federated_date", type: "range-facet", collapse: true, isHidden: false},
       {label: "Federated Terms", field: "sm_federated_terms", type: "list-facet", hierarchy: true, expandedHierarchies: [], isHidden: false},
     ],
     // The solr field to use as the source for the main query param "q".
-    mainQueryField: "tm_rendered_item",
+    mainQueryField: "tm_X3b_en_rendered_item",
     sortFields: [
       {label: "Relevance", field: "score"},
       {label: "Date", field: "ds_federated_date"}
     ],
     // Enable highlighting in search results snippets.
     hl: {
-      fl: 'tm_rendered_item', // the highlight snippet source field(s)
+      fl: 'tm_X3b_en_rendered_item', // the highlight snippet source field(s)
       usePhraseHighlighter: true // highlight phrase queries
     },
     pageStrategy: "paginate",

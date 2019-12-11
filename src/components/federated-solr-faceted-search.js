@@ -143,11 +143,11 @@ class FederatedSolrFacetedSearch extends React.Component {
               <FederatedTextSearch
                 {...this.props}
                 autocomplete={options.autocomplete}
-                field="tm_rendered_item"
+                field="tm_X3b_en_rendered_item"
                 label="Enter search term:"
                 onSuggest={onTextInputChange}
                 onChange={onSearchFieldChange}
-                value={searchFields.find(sf => sf.field === 'tm_rendered_item').value}
+                value={searchFields.find(sf => sf.field === 'tm_X3b_en_rendered_item').value}
               />
               <CurrentQueryComponent
                 {...this.props}
@@ -159,8 +159,8 @@ class FederatedSolrFacetedSearch extends React.Component {
                 sortFields={sortFields}
               />
             </div>
-            <p className={(searchFields.find(sf => sf.field === 'tm_rendered_item').value || this.props.options.showEmptySearchResults) ? 'solr-search-results-container__prompt element-invisible' : 'solr-search-results-container__prompt'}>{this.props.options.searchPrompt || 'Please enter a search term.'}</p>
-            <div className={(searchFields.find(sf => sf.field === 'tm_rendered_item').value || this.props.options.showEmptySearchResults) ? 'solr-search-results-container__wrapper' : 'solr-search-results-container__wrapper element-invisible'}>
+            <p className={(searchFields.find(sf => sf.field === 'tm_X3b_en_rendered_item').value || this.props.options.showEmptySearchResults) ? 'solr-search-results-container__prompt element-invisible' : 'solr-search-results-container__prompt'}>{this.props.options.searchPrompt || 'Please enter a search term.'}</p>
+            <div className={(searchFields.find(sf => sf.field === 'tm_X3b_en_rendered_item').value || this.props.options.showEmptySearchResults) ? 'solr-search-results-container__wrapper' : 'solr-search-results-container__wrapper element-invisible'}>
               <ResultContainerComponent bootstrapCss={bootstrapCss}>
                 <ResultHeaderComponent bootstrapCss={bootstrapCss}>
                   <ResultCount
@@ -170,7 +170,7 @@ class FederatedSolrFacetedSearch extends React.Component {
                     rows={rows}
                     onChange={onPageChange}
                     noResultsText={this.props.options.noResults || null}
-                    termValue={searchFields.find(sf => sf.field === 'tm_rendered_item').value}
+                    termValue={searchFields.find(sf => sf.field === 'tm_X3b_en_rendered_item').value}
                   />
                   {resultPending}
                 </ResultHeaderComponent>
