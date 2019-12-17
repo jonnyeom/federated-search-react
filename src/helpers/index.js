@@ -30,6 +30,7 @@ const filterFieldsWithQsState = [
   'sm_federated_terms',
   'sm_federated_terms_topic',
   'sm_federated_terms_subtopic',
+  'sm_federated_terms_ie_section',
 ];
 
 const qs = {
@@ -242,7 +243,7 @@ const qs = {
       }
       // Concatenate existing searchField.value array with multivalue param array..
       if (typeof param[1] === 'object' && searchField.value !== param[1]) {
-        const federatedTermFields = ['sm_federated_terms', 'sm_federated_terms_topic', 'sm_federated_terms_subtopic'];
+        const federatedTermFields = ['sm_federated_terms', 'sm_federated_terms_topic', 'sm_federated_terms_subtopic', 'sm_federated_terms_ie_section'];
         const isFederatedTerms = federatedTermFields.includes('searchField.field');
         if (isFederatedTerms) {
           const expandedHierarchies = [];

@@ -66,7 +66,7 @@ const init = (settings) => {
       {label: "Type", field: "ss_federated_type", type: "list-facet", collapse: true, isHidden: false},
       {label: "Site Name", field: "sm_site_name", type: "list-facet", collapse: true, isHidden: false},
       {label: "Date", field: "ds_federated_date", type: "range-facet", collapse: true, isHidden: false},
-      {label: "Federated Terms", field: "sm_federated_terms", type: "list-facet", hierarchy: true, expandedHierarchies: [], isHidden: false},
+      {label: "Section", field: "sm_federated_terms_ie_section", type: "list-facet", hierarchy: true, expandedHierarchies: [], isHidden: false},
     ],
     // The solr field to use as the source for the main query param "q".
     mainQueryField: "tm_X3b_en_rendered_item",
@@ -84,6 +84,9 @@ const init = (settings) => {
     // Hostname overridable in ./.env.local.js for testing purposes.
     hostname: window.location.hostname,
     autocomplete: false,
+    conditionalFilters: {
+      sm_federated_terms_ie_section: {allowed_types: ['IE Magazine']}
+    }
   };
 
   const options = Object.assign(defaults, settings);

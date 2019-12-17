@@ -16,8 +16,9 @@ const getFacetValues = (type, results, field, lowerBound, upperBound) => {
 class FederatedSolrFacetedSearch extends React.Component {
   constructor(props) {
     super(props);
-
+    // This binding is necessary to make `this` work in the callback
     this.resetFilters = this.resetFilters.bind(this);
+    this.customFilterChangeHandler = this.customFilterChangeHandler.bind(this);
   }
 
   resetFilters() {
@@ -50,6 +51,12 @@ class FederatedSolrFacetedSearch extends React.Component {
     this.setState({ query });
     // Execute search.
     this.props.onSearchFieldChange();
+  }
+
+  customFilterChangeHandler(field, value) {
+    console.log(this);
+    // @Todo: Update filters.
+    this.props.onSearchFieldChange(field, value);
   }
 
   render() {
@@ -130,7 +137,7 @@ class FederatedSolrFacetedSearch extends React.Component {
                       bootstrapCss={bootstrapCss}
                       facets={facets}
                       truncateFacetListsAt={truncateFacetListsAt}
-                      onChange={onSearchFieldChange}
+                      onChange={this.customFilterChangeHandler}
                     />
                   );
                 })
@@ -214,7 +221,7 @@ FederatedSolrFacetedSearch.defaultProps = {
   sortFields: [],
   truncateFacetListsAt: -1,
   showCsvExport: false,
-  sidebarFilters: ['sm_site_name', 'ss_federated_type', 'ds_federated_date', 'sm_federated_terms', 'sm_federated_terms_topic', 'sm_federated_terms_subtopic'],
+  sidebarFilters: ['sm_site_name', 'ss_federated_type', 'ds_federated_date', 'sm_federated_terms', 'sm_federated_terms_topic', 'sm_federated_terms_subtopic', 'sm_federated_terms_ie_section'],
   options: {},
 };
 
