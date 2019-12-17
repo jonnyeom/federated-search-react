@@ -84,9 +84,9 @@ const init = (settings) => {
     // Hostname overridable in ./.env.local.js for testing purposes.
     hostname: window.location.hostname,
     autocomplete: false,
-    conditionalFilters: {
-      sm_federated_terms_ie_section: {allowed_types: ['IE Magazine']}
-    }
+    conditionalFilters: [
+      {allowed_types: ['IE Magazine'], searchFieldEntry: {label: "Section", field: "sm_federated_terms_ie_section", type: "list-facet", hierarchy: true, expandedHierarchies: [], isHidden: false}},
+    ]
   };
 
   const options = Object.assign(defaults, settings);

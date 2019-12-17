@@ -54,7 +54,26 @@ class FederatedSolrFacetedSearch extends React.Component {
   }
 
   customFilterChangeHandler(field, value) {
-    console.log(this);
+    if (field === 'ss_federated_type') {
+      let { options, query } = this.props;
+
+      // @Todo: Swtich the filtering logic so that we iterate over the conditionalFilters, not the given values.
+      let filtersToAdd = [];
+      for (let i in value) {
+        let type = value[i];
+        options.conditionalFilters.forEach((conditionalFilter) => {
+          if (conditionalFilter.allowed_types.includes(value[i])) {
+            filtersToAdd.push(conditionalFilter.searchFieldEntry);
+          }
+        });
+      }
+
+      console.log(query.searchFields);
+      console.log(filtersToAdd);
+
+      this.setState({ query });
+    }
+
     // @Todo: Update filters.
     this.props.onSearchFieldChange(field, value);
   }
